@@ -42,9 +42,10 @@ class App extends Component {
   }
 
   clickHandler(x,y) {
-    console.log(x,y);
     var new_state = this.state;
-    new_state.squares[x][y].color = this.state.currentPlayer;
+    var piece = this.dropPiece(x);
+    console.log(piece);
+    new_state.squares[x][piece].color=this.state.currentPlayer;
     if (this.state.currentPlayer==='Red') {
       new_state.currentPlayer='Blue';
     }
@@ -54,11 +55,25 @@ class App extends Component {
     this.setState(new_state);
   }
 
+  dropPiece(x) {
+    for (var i = 0; i < this.state.squares[x].length; i++) {
+      if (i===8&&this.state.squares[x][8].color==='gray'){
+        return 8;
+      }
+      else if (this.state.squares[x][i].color!=='gray') {
+        return i-1;
+      }
+      else {
+        continue
+      }
+    }
+  }
+
   render() {
     return (
         <div>
           <header className="header">
-            <h1>Connectris beta</h1>
+            <h1>Connectris Alpha</h1>
           </header>
           <div className="content">
             <div>
