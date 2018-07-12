@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Square from './square.js';
-import deepcopy from 'deepcopy';
 
 class Board extends Component {
   constructor(props){
@@ -32,7 +31,7 @@ class Board extends Component {
   }
 
   hoverHandler(x) {
-    var new_state = deepcopy({...this.state});
+    var new_state = this.state;
     for (var i = 0; i < new_state.squares[new_state.rowHover].length; i++){
       if (new_state.squares[new_state.rowHover][i].color==='gray') {
         new_state.squares[new_state.rowHover][i].color='lightgray';
