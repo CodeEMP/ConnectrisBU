@@ -2,55 +2,19 @@ import React, { Component } from 'react';
 import Square from './square.js';
 
 class Board extends Component {
-  constructor(props){
-    super(props);
-    this.state={
-      squares : [[{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',}],
-                [{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',}],
-                [{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',}],
-                [{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',}],
-                [{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',}],
-                [{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',}],
-                [{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',}],
-                [{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',}],
-                [{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',}]],
-      rowHover: 0,
-    }
-  }
+
 
   renderSquare(i, j) {
     return (
       <Square
         xvalue={i}
         yvalue={j}
-        value={this.state.squares[i][j]}
-        onMouseEnter={()=>this.hoverHandler(i)}
-        onClick={()=>this.clickHandler(i,j)}
+        value={this.props.squares[i][j]}
+        onMouseEnter={()=>this.props.hoverHandler(i)}
+        onClick={()=>this.props.clickHandler(i,j)}
       />
     );
   }
-
-  hoverHandler(x) {
-    var new_state = this.state;
-    for (var i = 0; i < new_state.squares[new_state.rowHover].length; i++){
-      if (new_state.squares[new_state.rowHover][i].color==='gray') {
-        new_state.squares[new_state.rowHover][i].color='lightgray';
-      }
-    }
-    new_state.rowHover = x;
-    for (var j = 0; j < new_state.squares[new_state.rowHover].length; j++) {
-      if (new_state.squares[new_state.rowHover][j].color==='lightgray') {
-        new_state.squares[new_state.rowHover][j].color='gray';
-      }
-    }
-    this.setState(new_state);
-  }
-
-  clickHandler(x,y,color) {
-    console.log(x,y);
-  }
-
-
 
   render() {
     return (
