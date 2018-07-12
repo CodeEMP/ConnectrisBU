@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import Board from './Components/board.js';
 import PlayerStatus from './Components/playerstatus.js';
+import {
+  shapeFour,
+  dropPiece } from './functions.js';
 
 class App extends Component {
   constructor(props) {
@@ -11,8 +14,8 @@ class App extends Component {
       currentPlayer : 'Red',
       bluePoints: 0,
       redPoints: 0,
-      blueShape: undefined,
-      redShape: undefined,
+      blueShape: null,
+      redShape: null,
       squares : [[{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',}],
                 [{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',}],
                 [{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',},{color: 'lightgray',}],
@@ -43,7 +46,8 @@ class App extends Component {
 
   clickHandler(x,y) {
     var new_state = this.state;
-    var piece = this.dropPiece(x);
+    var piece = dropPiece(this.state.squares, x);
+    console.log(x,y);
     console.log(piece);
     new_state.squares[x][piece].color=this.state.currentPlayer;
     if (this.state.currentPlayer==='Red') {
@@ -55,18 +59,16 @@ class App extends Component {
     this.setState(new_state);
   }
 
-  dropPiece(x) {
-    for (var i = 0; i < this.state.squares[x].length; i++) {
-      if (i===8&&this.state.squares[x][8].color==='gray'){
-        return 8;
-      }
-      else if (this.state.squares[x][i].color!=='gray') {
-        return i-1;
-      }
-      else {
-        continue
-      }
-    }
+  setUP() {
+    console.log('onClick')
+    var blue = shapeFour();
+    console.log(blue);
+    var red = shapeFour();
+    console.log(red);
+    var new_state = this.state;
+    new_state.blueShape = blue;
+    new_state.redShape = red;
+    this.setState(new_state);
   }
 
   render() {
@@ -74,10 +76,16 @@ class App extends Component {
         <div>
           <header className="header">
             <h1>Connectris Alpha</h1>
+            <button onClick={() => this.setUP()}>
+              Start
+            </button>
           </header>
           <div className="content">
             <div>
-              <PlayerStatus player='Red' currentPlayer={this.state.currentPlayer} points={this.state.redPoints} />
+              <PlayerStatus player='Red'
+                currentPlayer={this.state.currentPlayer}
+                points={this.state.redPoints}
+                shape={this.state.redShape} />
             </div>
             <div className="board">
               <Board currentPlayer={this.state.currentPlayer}
@@ -86,7 +94,10 @@ class App extends Component {
                 clickHandler={(x,y) => this.clickHandler(x,y)} />
             </div>
             <div>
-              <PlayerStatus player='Blue' currentPlayer={this.state.currentPlayer} points={this.state.bluePoints} />
+              <PlayerStatus player='Blue'
+                currentPlayer={this.state.currentPlayer}
+                points={this.state.bluePoints}
+                shape={this.state.blueShape} />
             </div>
           </div>
         </div>

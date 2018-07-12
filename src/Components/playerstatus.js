@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class PlayerStatus extends Component {
 
-  renderPointsAndShape() {
+  renderPoints() {
       return (
         <p>
           {this.props.points}
@@ -10,13 +10,38 @@ class PlayerStatus extends Component {
       )
   }
 
+  renderColorShape() {
+    if (this.props.shape==='Line') {
+      return (
+        <div>
+          <p className='shapecontainer'>
+            [][][][]
+          </p>
+        </div>
+      )
+    }
+    else if (this.props.shape==='Square') {
+      return (
+        <div>
+          <p className='shapecontainer'>
+            [][]
+          </p>
+          <p className='shapecontainer'>
+            [][]
+          </p>
+        </div>
+      )
+    }
+  }
+
   render() {
     return(
       <div>
         <h2>
-          {this.props.currentPlayer === this.props.player ? (<p>:NEXT:</p>) : <p>:______:</p>}
+          {this.props.currentPlayer === this.props.player ? (<p className='turnmarker'>:NEXT:</p>) : <p className='turnmarker'>:_____:</p>}
           {this.props.player}
-          {this.renderPointsAndShape()}
+          {this.renderPoints()}
+          {this.renderColorShape()}
         </h2>
       </div>
     )

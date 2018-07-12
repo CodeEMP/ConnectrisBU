@@ -56,6 +56,15 @@
   width: 60px;
 }
 
+.turnmarker {
+  width: 20px;
+}
+
+.shapecontainer {
+  margin: 0;
+  padding:0;
+  width: 20px;
+}
 
 .game {
   display: flex;
