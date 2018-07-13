@@ -4,7 +4,8 @@ import Board from './Components/board.js';
 import PlayerStatus from './Components/playerstatus.js';
 import {
   shapeFour,
-  dropPiece } from './functions.js';
+  dropPiece,
+  checkForScore } from './functions.js';
 
 class App extends Component {
   constructor(props) {
@@ -47,9 +48,8 @@ class App extends Component {
   clickHandler(x,y) {
     var new_state = this.state;
     var piece = dropPiece(this.state.squares, x);
-    console.log(x,y);
-    console.log(piece);
     new_state.squares[x][piece].color=this.state.currentPlayer;
+    new_state = checkForScore(new_state,x,piece);
     if (this.state.currentPlayer==='Red') {
       new_state.currentPlayer='Blue';
     }

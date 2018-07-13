@@ -32,6 +32,21 @@ class PlayerStatus extends Component {
         </div>
       )
     }
+    else if (this.props.shape==='Tee') {
+      return (
+        <div>
+          <p className='shapecontainer'>
+            []
+          </p>
+          <p className='shapecontainer'>
+            [][]
+          </p>
+          <p className='shapecontainer'>
+            []
+          </p>
+        </div>
+      )
+    }
   }
 
   render() {
