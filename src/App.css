@@ -32,6 +32,11 @@
   justify-content: space-around;
 }
 
+.board {
+  display:flex;
+  align-content: center;
+}
+
 .board-row:after {
   clear: both;
   content: "";
@@ -95,8 +100,7 @@
     justify-content: space-around;
   }
   .board {
-    order: 1;
-    width: 100%;
+    order: 2;
   }
 
   .square {
@@ -114,14 +118,17 @@
   }
 }
 
+.spacer {
+  width: 10%;
+}
+
 @media (max-width: 600px) {
   .content {
     flex-wrap: wrap;
     justify-content: space-around;
   }
   .board {
-    order: 1;
-    width: 100%;
+    order: 2;
   }
 
   .square {
@@ -145,8 +152,7 @@ media (max-width: 480px) {
     justify-content: space-around;
   }
   .board {
-    order: 1;
-    width: 100%;
+    order: 2;
   }
 
   .square {
