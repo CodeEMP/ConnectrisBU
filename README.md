@@ -1,4 +1,4 @@
-Connectris
+﻿Connectris
 
 A simple game inspired by Connect Four with additional rules. Players are tasked
  with making a specific shape of 4 tiles in order to score. The game ends when
@@ -16,4 +16,4 @@ $ npm start
 
 Deployment
 
-Deployed on heroku and accessible at connectris.herokuapp.com
+Deployed on heroku and accessible at http://connectris.herokuapp.com/
