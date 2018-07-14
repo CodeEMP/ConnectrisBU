@@ -57,13 +57,13 @@
 }
 
 .turnmarker {
-  width: 20px;
+  width: 60%;
 }
 
 .shapecontainer {
   margin: 0;
   padding:0;
-  width: 20px;
+  width: 60%;
 }
 
 .game {
@@ -75,6 +75,17 @@
   margin-left: 20px;
 }
 
+.redPlayer {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+}
+
+.bluePlayer {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

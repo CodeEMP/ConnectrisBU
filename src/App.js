@@ -81,7 +81,7 @@ class App extends Component {
             </button>
           </header>
           <div className="content">
-            <div>
+            <div className="redPlayer">
               <PlayerStatus player='Red'
                 currentPlayer={this.state.currentPlayer}
                 points={this.state.redPoints}
@@ -93,7 +93,7 @@ class App extends Component {
                 hoverHandler={(x) => this.hoverHandler(x)}
                 clickHandler={(x,y) => this.clickHandler(x,y)} />
             </div>
-            <div>
+            <div className='bluePlayer'>
               <PlayerStatus player='Blue'
                 currentPlayer={this.state.currentPlayer}
                 points={this.state.bluePoints}
