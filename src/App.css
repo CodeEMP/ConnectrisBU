@@ -57,13 +57,13 @@
 }
 
 .turnmarker {
-  width: 60%;
+  width: 100%;
 }
 
 .shapecontainer {
   margin: 0;
   padding:0;
-  width: 60%;
+  width: 100%;
 }
 
 .game {
@@ -71,9 +71,6 @@
   flex-direction: row;
 }
 
-.game-info {
-  margin-left: 20px;
-}
 
 .redPlayer {
   width: 20%;
