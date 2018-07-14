@@ -92,11 +92,11 @@
 @media (max-width: 992px) {
   .content {
     flex-wrap: wrap;
+    justify-content: space-around;
   }
   .board {
     order: 1;
     width: 100%;
-    margin-left: 22%;
   }
 
   .square {
@@ -117,10 +117,11 @@
 @media (max-width: 600px) {
   .content {
     flex-wrap: wrap;
+    justify-content: space-around;
   }
   .board {
     order: 1;
-    margin-left: 15%;
+    width: 100%;
   }
 
   .square {
@@ -141,9 +142,11 @@
 media (max-width: 480px) {
   .content {
     flex-wrap: wrap;
+    justify-content: space-around;
   }
   .board {
     order: 1;
+    width: 100%;
   }
 
   .square {
